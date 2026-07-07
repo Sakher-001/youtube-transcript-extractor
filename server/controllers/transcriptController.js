@@ -7,6 +7,7 @@ export const getTranscript = async (req, res) => {
     const { url } = req.body;
 
     if (!url) {
+      console.error(error);
       return res.status(400).json({
         success: false,
         message: "Youtube URL is required",
@@ -16,6 +17,7 @@ export const getTranscript = async (req, res) => {
     const videoId = extractVideoId(url);
 
     if (!videoId) {
+      console.error(error);
       return res.status(400).json({
         success: false,
         message: "Invalid Youtube URL",
@@ -34,7 +36,6 @@ export const getTranscript = async (req, res) => {
 
   } catch (error) {
     console.error(error);
-
     res.status(500).json({
       success: false,
       message: error.message,
