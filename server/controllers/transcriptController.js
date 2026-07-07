@@ -24,7 +24,7 @@ export const getTranscript = async (req, res) => {
       });
     }
 
-    const transcript = await YoutubeTranscript.fetchTranscript(videoId);
+    const transcript = await YoutubeTranscript.fetchTranscript(url);
 
     res.status(200).json({
       success: true,
